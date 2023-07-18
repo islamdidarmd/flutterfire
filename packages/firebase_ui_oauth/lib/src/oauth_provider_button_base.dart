@@ -187,8 +187,8 @@ class _OAuthProviderButtonBaseState extends State<OAuthProviderButtonBase>
             padding: const EdgeInsets.all(0),
             borderRadius: br,
             onPressed: _signIn,
-            child: ClipRRect(
-              borderRadius: br,
+            child: ClipPath(
+              clipper: const ShapeBorderClipper(shape: StadiumBorder()),
               child: _ButtonContent(
                 assetsPackage: style.assetsPackage,
                 iconSrc: style.iconSrc,
@@ -496,9 +496,9 @@ class _ButtonContainer extends StatelessWidget {
         child: Material(
           color: color,
           elevation: 1,
-          shape: RoundedRectangleBorder(borderRadius: borderRadius),
-          child: ClipRRect(
-            borderRadius: borderRadius,
+          shape: const StadiumBorder(),
+          child: ClipPath(
+            clipper: const ShapeBorderClipper(shape: StadiumBorder()),
             child: Center(child: child),
           ),
         ),
